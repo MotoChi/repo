@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="GitTest" default="build">
+  <property name="GIT_TEST_DEBUG" value="false" />
+  <property name="GIT_TEST_COMMON_LIBS" value="../../libs/libs" />
+  <property name="GIT_TEST_DEPLOY_DIR" value="../../deploy" />
+  <property name="GIT_TEST_DEPLOY_DIR_LIB" value="${GIT_TEST_DEPLOY_DIR}/lib" />
+  <property name="GIT_TEST_DEPLOY_DIR_CLASSES" value="${GIT_TEST_DEPLOY_DIR}/classes" />
+  <property name="GIT_TEST_PROJECT_NAME" value="GitTest" />
+  <property name="GIT_TEST_JAR" value="${GIT_TEST_DEPLOY_DIR_LIB}/${GIT_TEST_PROJECT_NAME}.jar" />
+  <property name="GIT_TEST_SRC_DIR" value="src" />
+  <property name="GIT_TEST_BUILD_DIR" value="bin" />
+  <property name="GIT_TEST_TEST_SRC_DIR" value="test" />
+  
+  <fileset id="build_jars" dir="${GIT_TEST_COMMON_LIBS}">
+    <patternset>
+    </patternset>
+  </fileset>
+  
+  <path id="classpath">
+    <fileset dir="${GIT_TEST_DEPLOY_DIR_LIB}">
+      <include name="**/*.jar" />
+    </fileset>
+    <pathelement path="${GIT_TEST_BUILD_DIR}" />
+  </path>
+  
+  <fileset id="test_jars" dir="${GIT_TEST_COMMON_LIBS}">
+    <patternset>
+      <include name="cglib/cglib-2.2/cglib-nodep-2.2.jar" />
+      <include name="easymock/easymock2.4/easymock.jar" />
+      <include name="easymock/easymockclassextension2.4/easymockclassextension.jar" />
+      <include name="junit/junit-4.5/junit-4.5.jar" />
+    </patternset>
+  </fileset>
+  
+  <target name="clean">
+    <delete dir="${GIT_TEST_BUILD_DIR}" quiet="true" />
+  </target>
+  
+  <target name="clean_all" depends="clean">
+    <delete dir="${GIT_TEST_DEPLOY_DIR_LIB}" quiet="true" />
+    <delete dir="${GIT_TEST_DEPLOY_DIR_CLASSES}" quiet="true" />
+    <mkdir dir="${GIT_TEST_DEPLOY_DIR_LIB}" />
+    <mkdir dir="${GIT_TEST_DEPLOY_DIR_CLASSES}" />
+  </target>
+  
+  <target name="build" depends="clean">
+    <mkdir dir="${GIT_TEST_BUILD_DIR}" />
+    <copy todir="${GIT_TEST_DEPLOY_DIR_LIB}" flatten="true">
+      <fileset refid="build_jars" />
+    </copy>
+    <javac srcdir="${GIT_TEST_SRC_DIR}" destdir="${GIT_TEST_BUILD_DIR}" failonerror="true" verbose="true" debug="${GIT_TEST_DEBUG}" includeAntRuntime="false">
+      <classpath refid="classpath" />
+    </javac>
+  </target>
+  
+  <target name="_test_cp_jars" depends="build">
+    <copy todir="${GIT_TEST_DEPLOY_DIR_LIB}" flatten="true">
+      <fileset refid="test_jars" />
+    </copy>
+  </target>
+  
+  <target name="test" depends="_test_cp_jars">
+      <javac srcdir="${GIT_TEST_TEST_SRC_DIR}" destdir="${GIT_TEST_BUILD_DIR}" failonerror="true" verbose="true" debug="${DEBUG}" includeAntRuntime="false">
+        <classpath refid="classpath" />
+      </javac>
+      <junit>
+        <batchtest fork="yes" todir="${GIT_TEST_BUILD_DIR}">
+          <fileset dir="${GIT_TEST_TEST_SRC_DIR}">
+            <include name="**/*Test*.java" />
+            <exclude name="**/AllTests.java" />
+          </fileset>
+        </batchtest>
+        <classpath refid="classpath" />
+        <formatter type="plain" usefile="false" />
+      </junit>
+    </target>
+</project>
