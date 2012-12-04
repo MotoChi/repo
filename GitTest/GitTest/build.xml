@@ -63,12 +63,13 @@
       <javac srcdir="${GIT_TEST_TEST_SRC_DIR}" destdir="${GIT_TEST_BUILD_DIR}" failonerror="true" verbose="true" debug="${DEBUG}" includeAntRuntime="false">
         <classpath refid="classpath" />
       </javac>
-      <junit>
+      <junit printsummary="true" failureproperty="junit.failure">
         <batchtest fork="yes" todir="${GIT_TEST_BUILD_DIR}">
           <fileset dir="${GIT_TEST_TEST_SRC_DIR}">
             <include name="**/*Test*.java" />
             <exclude name="**/AllTests.java" />
           </fileset>
+          <formatter type="xml"/>
         </batchtest>
         <classpath refid="classpath" />
         <formatter type="plain" usefile="false" />
