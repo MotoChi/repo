@@ -25,10 +25,10 @@
   
   <fileset id="test_jars" dir="${GIT_TEST_COMMON_LIBS}">
     <patternset>
-      <include name="cglib/cglib-2.2/cglib-nodep-2.2.jar" />
-      <include name="easymock/easymock2.4/easymock.jar" />
-      <include name="easymock/easymockclassextension2.4/easymockclassextension.jar" />
-      <include name="junit/junit-4.5/junit-4.5.jar" />
+      <include name="cglib/cglib-3.0/cglib-nodep-3.0.jar" />
+      <include name="easymock/easymock-3.1/easymock-3.1.jar" />
+      <include name="easymock/easymockclassextension-3.1/easymockclassextension-3.1.jar" />
+      <include name="junit/junit-4.11/junit-4.11.jar" />
     </patternset>
   </fileset>
   
