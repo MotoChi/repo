@@ -1,9 +1,0 @@
-LogMsg: Wed Jun 27 18:54:16 CEST 2012 jmx.attribute.change AttributeChangeDetected Name = Name Old value = TEST New value = Rob Harrop
-LogMsg: Wed Jun 27 22:33:03 CEST 2012 jmx.attribute.change AttributeChangeDetected Name = Name Old value = TEST New value = Rob Harrop
-LogMsg: Wed Jun 27 22:43:13 CEST 2012 jmx.attribute.change AttributeChangeDetected Name = Name Old value = TEST New value = Rob Harrop
-LogMsg: Fri Jul 06 16:29:15 CEST 2012 jmx.attribute.change AttributeChangeDetected Name = Name Old value = TEST New value = Rob Harrop
-LogMsg: Sat Jul 07 17:32:29 CEST 2012 jmx.attribute.change AttributeChangeDetected Name = Name Old value = TEST New value = Rob Harrop
-LogMsg: Tue Oct 09 19:38:35 PDT 2012 jmx.attribute.change AttributeChangeDetected Name = Name Old value = TEST New value = Rob Harrop
-LogMsg: Wed Oct 24 14:42:59 CEST 2012 jmx.attribute.change AttributeChangeDetected Name = Name Old value = TEST New value = Rob Harrop
-LogMsg: Wed Oct 24 19:15:40 CEST 2012 jmx.attribute.change AttributeChangeDetected Name = Name Old value = TEST New value = Rob Harrop
-LogMsg: Wed Oct 31 14:42:47 CET 2012 jmx.attribute.change AttributeChangeDetected Name = Name Old value = TEST New value = Rob Harrop
