@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import springapp.domain.Product;
+import springapp.repository.InMemoryProductDao;
+import springapp.repository.ProductDao;
 
 public class SimpleProductManagerTests {
   private SimpleProductManager productManager;
@@ -37,7 +39,8 @@ public class SimpleProductManagerTests {
     product.setPrice(TABLE_PRICE);
     products.add(product);
 
-    productManager.setProducts(products);
+    ProductDao productDao = new InMemoryProductDao(products);
+    productManager.setProductDao(productDao);
   }
 
   @After
@@ -47,6 +50,7 @@ public class SimpleProductManagerTests {
   @Test
   public void testGetProductsWithNoProducts() throws Exception {
     productManager = new SimpleProductManager();
+    productManager.setProductDao(new InMemoryProductDao(null));
     assertNull(productManager.getProducts());
   }
 
@@ -69,6 +73,7 @@ public class SimpleProductManagerTests {
   public void testIncreasePriceWithNullListOfProducts() throws Exception {
     try {
       productManager = new SimpleProductManager();
+      productManager.setProductDao(new InMemoryProductDao(null));
       productManager.increasePrice(POSITIVE_PRICE_INCREASE);
     } catch (NullPointerException ex) {
       fail("Products list is null.");
@@ -79,7 +84,7 @@ public class SimpleProductManagerTests {
   public void testIncreasePriceWithEmptyListOfProducts() throws Exception {
     try {
       productManager = new SimpleProductManager();
-      productManager.setProducts(new ArrayList<Product>());
+      productManager.setProductDao(new InMemoryProductDao(new ArrayList<Product>()));
       productManager.increasePrice(POSITIVE_PRICE_INCREASE);
     } catch (Exception e) {
       fail("Products list is empty.");

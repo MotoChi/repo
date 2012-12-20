@@ -2,6 +2,7 @@ package springapp.web;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.junit.After;
@@ -9,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
+import springapp.domain.Product;
+import springapp.repository.InMemoryProductDao;
 import springapp.service.SimpleProductManager;
 
 public class InventoryControllerTests {
@@ -24,7 +27,9 @@ public class InventoryControllerTests {
   @Test
   public void testHandleRequestView() throws Exception {
     InventoryController controller = new InventoryController();
-    controller.setProductManager(new SimpleProductManager());
+    SimpleProductManager spm = new SimpleProductManager();
+    spm.setProductDao(new InMemoryProductDao(new ArrayList<Product>()));
+    controller.setProductManager(spm);
     ModelAndView modelAndView = controller.handleRequest(null, null);
     assertEquals("hello", modelAndView.getViewName());
     assertNotNull(modelAndView.getModel());
