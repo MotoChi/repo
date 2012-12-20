@@ -21,7 +21,6 @@ public class JdbcProductDao extends SimpleJdbcDaoSupport implements ProductDao {
   @Override
   public List<Product> getProductList() {
     logger.info("Getting products!");
-    @SuppressWarnings("deprecation")
     List<Product> products = getSimpleJdbcTemplate().query(
         "select id, description, price from products", new ProductMapper());
     return products;
@@ -30,7 +29,6 @@ public class JdbcProductDao extends SimpleJdbcDaoSupport implements ProductDao {
   @Override
   public void saveProduct(Product prod) {
     logger.info("Saving product: " + prod.getDescription());
-    @SuppressWarnings("deprecation")
     int count = getSimpleJdbcTemplate()
         .update(
             "update products set description = :description, price = :price where id = :id",
