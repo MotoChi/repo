@@ -1,3 +1,29 @@
+/*
+Classes:
+<h1 class="name">
+<p class="address">
+<p class="email">
+<p class="phone">
+<p class="summary">
+<ul class="skills">
+<h2 class="section_name">
+<h3 class="employer">
+<h3 class="employer_location">
+<p class="employer_summary">
+<p class="job_title">
+<p class="employed_dates">
+<ul class="position_highlights">
+<h3 class="school">
+<p class="degree">
+<p class="graduation_date">
+<p class="certification_name">
+<p class="certified_date">
+<ul class="related_skills">
+*/
+
 body {
- background-color: white;
+  background-color: rgb(255, 255, 255);
+  font-size: medium;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  color: rgb(0, 0, 0);
 }
