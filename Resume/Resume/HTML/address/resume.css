@@ -2,8 +2,7 @@
 Classes:
 <h1 class="name">
 <p class="address">
-<p class="email">
-<p class="phone">
+<p class="communication">
 <p class="summary">
 <ul class="skills">
 <h2 class="section_name">
@@ -26,4 +25,25 @@ body {
   font-size: medium;
   font-family: Verdana, Helvetica, Arial, sans-serif;
   color: rgb(0, 0, 0);
+  line-height: 1.25em; 
+}
+
+h1 {
+  font-size: 1.7em;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+.name {
+  text-align: center;
+  border-style: none;
+  border-width: 0px;
+  margin: 0px;
+  padding: 0px;
 }
