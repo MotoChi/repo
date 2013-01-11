@@ -1,10 +1,5 @@
 /*
 Classes:
-<h1 class="name">
-<p class="address">
-<p class="communication">
-<p class="summary">
-<ul class="skills">
 <h2 class="section_name">
 <h3 class="employer">
 <h3 class="employer_location">
@@ -17,7 +12,30 @@ Classes:
 <p class="graduation_date">
 <p class="certification_name">
 <p class="certified_date">
-<ul class="related_skills">
+
+Id's:
+<h1 id="name">
+<p id="summary">
+<ul id="skills">
+
+DIV's:
+<div id="contact_information">
+<div id="address">
+<div id="communication">
+<div id="experience">
+<div id="element_115">
+<div id="google">
+<div id="music_now">
+<div id="parity_systems">
+<div id="information_resources">
+<div id="goodfood">
+<div id="reuters">
+<div id="education">
+<div id="ut_bs">
+<div id="ut_ba">
+<div id="certifications">
+<div id="jscp_50">
+<div id="related_skills">
 */
 
 body {
@@ -40,7 +58,7 @@ h3 {
   font-size: 1em;
 }
 
-.name {
+#name {
   text-align: center;
   border-style: none;
   border-width: 0px;
