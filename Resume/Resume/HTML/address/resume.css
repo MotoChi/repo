@@ -19,6 +19,7 @@ Id's:
 <ul id="skills">
 
 DIV's:
+<div id="allcontent">
 <div id="contact_information">
 <div id="address">
 <div id="communication">
@@ -58,10 +59,51 @@ h3 {
   font-size: 1em;
 }
 
+#allcontent {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+}
+
 #name {
   text-align: center;
   border-style: none;
   border-width: 0px;
   margin: 0px;
+  padding: 0px 5px 5px 5px;
+}
+
+#contact_information {
+  margin: 0px;
   padding: 0px;
+  border-bottom: thin solid black;
+}
+
+#address {
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  text-align: left;
+}
+
+#address_p {
+  margin: 0px;
+  padding: 0px;
+}
+
+#communication {
+  text-align: right;
+  margin: 0px;
+  padding: 0px;
+}
+
+#communication_p {
+  margin: 0px;
+  padding: 0px;
+}
+
+#address_communication {
+  margin: 0px;
+  padding: 5px 0px 5px 0px;
 }
