@@ -53,6 +53,7 @@ h1 {
 
 h2 {
   font-size: 1.2em;
+  text-decoration: underline;
 }
 
 h3 {
@@ -136,4 +137,40 @@ h3 {
 
 #experience {
   clear: left;
+}
+
+.employer {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+  float: left;
+  text-align: left;
+}
+
+.employer_location {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+  text-align: right;
+}
+
+.employer_summary {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+  clear: left;
+}
+
+.job_title {
+  margin: 0px;
+  padding: 10px 0px 5px 0px;
+  font-style: italic;
+}
+
+.employed_dates {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+}
+
+.position_highlights {
+  margin: 0px 0px 0px 25px;
+  padding: 0px 0px 25px 0px;
+  list-style-position: outside;
 }
