@@ -88,7 +88,7 @@ h3 {
   text-align: left;
 }
 
-#address_p {
+#address p {
   margin: 0px;
   padding: 0px;
 }
@@ -99,7 +99,7 @@ h3 {
   padding: 0px;
 }
 
-#communication_p {
+#communication p {
   margin: 0px;
   padding: 0px;
 }
@@ -141,14 +141,15 @@ h3 {
 
 .employer {
   margin: 0px;
-  padding: 0px 0px 5px 0px;
+  padding: 0px 0px 1px 0px;
   float: left;
   text-align: left;
+  font-weight: bold;
 }
 
 .employer_location {
   margin: 0px;
-  padding: 0px 0px 5px 0px;
+  padding: 0px 0px 1px 0px;
   text-align: right;
 }
 
@@ -173,4 +174,38 @@ h3 {
   margin: 0px 0px 0px 25px;
   padding: 0px 0px 25px 0px;
   list-style-position: outside;
+}
+
+.school {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+  font-weight: bold;
+}
+
+.degree {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+  font-style: italic;
+}
+
+.graduation_date {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+}
+
+.certification_name {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+  font-style: italic;
+}
+
+.certified_date {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+}
+
+#related_skills ul {
+  margin: 0px;
+  padding: 0px 0px 5px 25px;
+  list-style-position: inside;
 }
