@@ -27,14 +27,43 @@ h3 {
 }
 
 #name {
-  text-align: center;
-  border-style: none;
-  border-width: 0px;
   margin: 0px;
   padding: 0px 5px 5px 5px;
+  text-align: center;
+}
+
+#pdf {
+  margin: 0px;
+  padding: 0px;
+  text-align: right;
+  font-style: italic;
+  position: relative;
+  top: -21px;
+  right: 35px;
+}
+
+#pdf a:link {
+  text-decoration: none;
+  color: #454545;
+}
+
+#pdf a:visited {
+  text-decoration: none;
+  color: #454545;
+}
+
+#pdf a:hover {
+  text-decoration: underline;
+  color: #454545;
+}
+
+#pdf a:active {
+  text-decoration: underline;
+  color: #454545;
 }
 
 #contact_information {
+  clear: left;
   margin: 0px;
   padding: 0px;
   border-bottom: thin solid black;
