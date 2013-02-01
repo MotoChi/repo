@@ -28,7 +28,7 @@ h3 {
 
 #name {
   margin: 0px;
-  padding: 0px 5px 5px 5px;
+  padding: 0px 5px 0px 5px;
   text-align: center;
 }
 
@@ -38,8 +38,8 @@ h3 {
   text-align: right;
   font-style: italic;
   position: relative;
-  top: -21px;
-  right: 35px;
+  top: -15px;
+  right: 0px;
 }
 
 #pdf a:link {
