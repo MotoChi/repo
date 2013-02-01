@@ -1,0 +1,197 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font-size: medium;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: rgb(0, 0, 0);
+  line-height: 1.25em; 
+}
+
+h1 {
+  font-size: 1.7em;
+}
+
+h2 {
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+#allcontent {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+}
+
+#name {
+  margin: 0px;
+  padding: 0px 5px 0px 5px;
+  text-align: center;
+}
+
+#pdf {
+  margin: 0px;
+  padding: 0px;
+  text-align: right;
+  position: relative;
+  top: -15px;
+  right: 0px;
+}
+
+#pdf a:link {
+  text-decoration: none;
+  color: #454545;
+}
+
+#pdf a:visited {
+  text-decoration: none;
+  color: #454545;
+}
+
+#pdf a:hover {
+  text-decoration: underline;
+  color: #454545;
+}
+
+#pdf a:active {
+  text-decoration: underline;
+  color: #454545;
+}
+
+#contact_information {
+  clear: left;
+  margin: 0px;
+  padding: 0px;
+  border-bottom: thin solid black;
+}
+
+
+#communication {
+  text-align: left;
+  margin: 0px;
+  padding: 5px 0px 5px 0px;
+}
+
+#communication p {
+  margin: 0px;
+  padding: 0px;
+}
+
+#summary_skills {
+  margin: 0px;
+  padding: 5px 0px 5px 0px;
+}
+
+#summary {
+  margin: 0px;
+  padding: 0px 0px 2px 0px;
+}
+
+#skills_left {
+  width: 400px;
+  margin: 0px;
+  padding: 0px 0px 0px 25px;
+  float: left;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#skills_right {
+  margin: 0px;
+  padding: 0px 25px 0px 0px;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#experience {
+  clear: left;
+}
+
+.company {
+  margin: 0px;
+  padding: 0px 0px 20px 0px;
+}
+
+.employer {
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+}
+
+.employer_location {
+  margin: 0px;
+  padding: 0px;
+  text-align: right;
+}
+
+.employer_summary {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+  clear: left;
+}
+
+.job_title {
+  margin: 0px;
+  padding: 10px 0px 0px 0px;
+  font-style: italic;
+}
+
+.employed_dates {
+  margin: 0px;
+  padding: 0px;
+}
+
+.position_highlights {
+  margin: 0px 0px 0px 25px;
+  padding: 0px;
+  list-style-position: outside;
+}
+
+.institution {
+  margin: 0px;
+  padding: 0px 0px 15px 0px;
+}
+
+.school {
+  margin: 0px;
+  padding: 0px;
+  font-weight: bold;
+}
+
+.degree {
+  margin: 0px;
+  padding: 0px;
+  font-style: italic;
+}
+
+.graduation_date {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+}
+
+.certification {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+}
+
+.certification_name {
+  margin: 0px;
+  padding: 0px;
+  font-style: italic;
+}
+
+.certified_date {
+  margin: 0px;
+  padding: 0px;
+}
+
+#related_skills ul {
+  margin: 0px;
+  padding: 0px 0px 5px 25px;
+  list-style-position: inside;
+}
