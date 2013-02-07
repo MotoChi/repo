@@ -190,8 +190,24 @@ h3 {
   padding: 0px;
 }
 
-#related_skills ul {
+#community_service {
   margin: 0px;
-  padding: 0px 0px 5px 25px;
-  list-style-position: inside;
+  padding: 0px;
+}
+
+.service_dates {
+  margin: 0px;
+  padding: 0px;
+}
+
+.service_name {
+  margin: 0px;
+  padding: 0px;
+  font-style: italic;
+}
+
+.service_details {
+  margin: 0px 0px 0px 25px;
+  padding: 0px;
+  list-style-position: outside;
 }
