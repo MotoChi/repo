@@ -80,6 +80,26 @@ h3 {
   padding: 0px;
 }
 
+#communication p a:link {
+  text-decoration: none;
+  color: black;
+}
+
+#communication p a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+#communication p a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+#communication p a:active {
+  text-decoration: underline;
+  color: black;
+}
+
 #summary_skills {
   margin: 0px;
   padding: 5px 0px 5px 0px;
