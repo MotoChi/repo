@@ -23,14 +23,21 @@ public class Frame {
 
   private void rollBalls() {
     ball1PinsKnockedDown = PinsKnockedDown.getNumberPinsKnockedDown(10);
-    if (ball1PinsKnockedDown != 10 && frameNumber != 10) {
+    if (ball1PinsKnockedDown != 10) {
       ball2PinsKnockedDown = PinsKnockedDown
           .getNumberPinsKnockedDown(10 - ball1PinsKnockedDown);
-    } else if (ball1PinsKnockedDown == 10 && frameNumber == 10) {
+    } else if (frameNumber == 10 && ball1PinsKnockedDown == 10) {
       ball2PinsKnockedDown = PinsKnockedDown.getNumberPinsKnockedDown(10);
       if (ball2PinsKnockedDown == 10) {
         ball3PinsKnockedDown = PinsKnockedDown.getNumberPinsKnockedDown(10);
+      } else {
+        ball3PinsKnockedDown = PinsKnockedDown
+            .getNumberPinsKnockedDown(10 - ball2PinsKnockedDown);
       }
+    }
+    if (frameNumber == 10
+        && (ball1PinsKnockedDown + ball2PinsKnockedDown) == 10) {
+      ball3PinsKnockedDown = PinsKnockedDown.getNumberPinsKnockedDown(10);
     }
   }
 
@@ -59,15 +66,36 @@ public class Frame {
   }
 
   public String toString() {
-    return String.format(
-        "Frame: %d Ball1: %d Ball2: %d Ball3: %d FrameScore: %d GameScore: %d",
-        frameNumber, ball1PinsKnockedDown, ball2PinsKnockedDown,
-        ball3PinsKnockedDown, frameScore(), gameScore());
+    if (frameNumber == 10) {
+      if (ball1PinsKnockedDown == 10) {
+        return String
+            .format(
+                "Frame: %d   Ball1: %d   Ball2: %d   Ball3: %d   FrameScore: %d   GameScore: %d",
+                frameNumber, ball1PinsKnockedDown, ball2PinsKnockedDown,
+                ball3PinsKnockedDown, frameScore(), gameScore());
+      } else if ((ball1PinsKnockedDown + ball2PinsKnockedDown) == 10) {
+        return String
+            .format(
+                "Frame: %d   Ball1: %d   Ball2: %d   Ball3: %d   FrameScore: %d   GameScore: %d",
+                frameNumber, ball1PinsKnockedDown, ball2PinsKnockedDown,
+                ball3PinsKnockedDown, frameScore(), gameScore());
+      } else {
+        return String
+            .format(
+                "Frame: %d   Ball1: %d   Ball2: %d   FrameScore: %d   GameScore: %d",
+                frameNumber, ball1PinsKnockedDown, ball2PinsKnockedDown,
+                frameScore(), gameScore());
+      }
+    } else
+      return String.format(
+          "Frame: %d   Ball1: %d   Ball2: %d   FrameScore: %d   GameScore: %d",
+          frameNumber, ball1PinsKnockedDown, ball2PinsKnockedDown,
+          frameScore(), gameScore());
   }
 
   public static void main(String[] args) {
     Frame previousFrame = null;
-    for (int i=1; i<=10; ++i) {
+    for (int i = 1; i <= 10; ++i) {
       Frame frame;
       if (previousFrame == null) {
         frame = new Frame(i, null);
