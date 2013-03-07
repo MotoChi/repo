@@ -29,9 +29,11 @@ public class LinkedList {
     Node element = new Node(data);
     if (head == null) {
       head.setNext(element);
+      element.setPrevious(head);
     }
     if (tail == null) {
       tail.setPrevious(element);
+      element.setNext(tail);
     } else {
       element.setPrevious(tail.getPrevious());
       element.getPrevious().setNext(element);
@@ -41,7 +43,7 @@ public class LinkedList {
     ++size;
   }
 
-  public void add(int i, String data) {
+  public void addAfter(int i, String data) {
     if (i > size) {
       throw new IllegalArgumentException(String.format(
           "%d is larger than size of linked list, %d", i, size));
@@ -51,16 +53,21 @@ public class LinkedList {
       for (int j=0; j<i; ++j) {
         temp = temp.getNext();
       }
-      Node element = new Node(data);
-      element.setNext(temp.getNext());
+      insert(temp, new Node(data));
     } else {
       Node temp = tail;
-      for (int j=size; j>size-i; --j) {
+      for (int j=size; j>i; --j) {
         temp = temp.getPrevious();
       }
-      Node element = new Node(data);
-      element.setNext(temp);
+      insert(temp, new Node(data));
     }
+  }
+  
+  private void insert(Node temp, Node element) {
+    element.setNext(temp.getNext());
+    element.getNext().setPrevious(element);
+    element.setPrevious(temp.getNext());
+    element.getPrevious().setNext(element);
     ++size;
   }
 
@@ -89,7 +96,7 @@ public class LinkedList {
       return temp.getData();
     } else {
       Node temp = tail.getPrevious();
-      for (int j=size-1; j>size-i; --j) {
+      for (int j=size-1; j>i; --j) {
         temp = temp.getPrevious();
       }
       return temp.getData();
@@ -99,9 +106,18 @@ public class LinkedList {
   public static void main(String[] args) {
     String[] items = {"A", "B", "C", "D", "E"};
     System.out.println("Items : " + StringUtils.join(items, ", "));
+    System.out.println("Add from begin.");
     LinkedList ll = new LinkedList();
     for (String item : items) {
       ll.addBegin(item);
+    }
+    for (int i=0; i<ll.getSize(); ++i) {
+      System.out.println("Item " + i + ": " + ll.get(i));
+    }
+    System.out.println("Add from end.");
+    ll = new LinkedList();
+    for (String item : items) {
+      ll.addEnd(item);
     }
     for (int i=0; i<ll.getSize(); ++i) {
       System.out.println("Item " + i + ": " + ll.get(i));
