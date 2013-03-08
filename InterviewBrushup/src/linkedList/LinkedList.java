@@ -116,10 +116,5 @@ public class LinkedList {
     for (int i = 0; i < ll.getSize(); ++i) {
       System.out.println("Item " + i + ": " + ll.get(i));
     }
-    System.out.println("Add item after position 4.");
-    ll.addAfter(4, "D2");
-    for (int i = 0; i < ll.getSize(); ++i) {
-      System.out.println("Item " + i + ": " + ll.get(i));
-    }
   }
 }
