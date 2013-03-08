@@ -3,8 +3,8 @@ package linkedList;
 import org.apache.commons.lang3.StringUtils;
 
 public class LinkedList {
-  private Node head = new Node("");
-  private Node tail = new Node("");
+  private final Node head = new Node("");
+  private final Node tail = new Node("");
   private int size;
 
   public void addBegin(String data) {
@@ -27,11 +27,11 @@ public class LinkedList {
 
   public void addEnd(String data) {
     Node element = new Node(data);
-    if (head == null) {
+    if (head.getNext() == null) {
       head.setNext(element);
       element.setPrevious(head);
     }
-    if (tail == null) {
+    if (tail.getPrevious() == null) {
       tail.setPrevious(element);
       element.setNext(tail);
     } else {
@@ -48,55 +48,44 @@ public class LinkedList {
       throw new IllegalArgumentException(String.format(
           "%d is larger than size of linked list, %d", i, size));
     }
-    if (size/2 > i) {
-      Node temp = head;
-      for (int j=0; j<i; ++j) {
-        temp = temp.getNext();
-      }
-      insert(temp, new Node(data));
-    } else {
-      Node temp = tail;
-      for (int j=size; j>i; --j) {
-        temp = temp.getPrevious();
-      }
-      insert(temp, new Node(data));
+    Node element = new Node(data);
+    Node temp = head;
+    for (int j = 0; j < i; ++j) {
+      temp = temp.getNext();
     }
-  }
-  
-  private void insert(Node temp, Node element) {
-    element.setNext(temp.getNext());
-    element.getNext().setPrevious(element);
+    temp.getNext().getNext().setPrevious(element);
+    element.setNext(temp.getNext().getNext());
+    temp.getNext().setNext(element);
     element.setPrevious(temp.getNext());
-    element.getPrevious().setNext(element);
     ++size;
   }
 
   public int getSize() {
     return size;
   }
-  
+
   public Node getHead() {
     return head;
   }
-  
+
   public Node getTail() {
     return tail;
   }
-  
+
   public String get(int i) {
     if (i > size || i < 0) {
       throw new IllegalArgumentException(String.format(
           "%d is larger than size of linked list, %d", i, size));
     }
-    if (size/2 > i) {
+    if (size / 2 > i) {
       Node temp = head.getNext();
-      for (int j=0; j<i; ++j) {
+      for (int j = 0; j < i; ++j) {
         temp = temp.getNext();
       }
       return temp.getData();
     } else {
       Node temp = tail.getPrevious();
-      for (int j=size-1; j>i; --j) {
+      for (int j = size - 1; j > i; --j) {
         temp = temp.getPrevious();
       }
       return temp.getData();
@@ -104,14 +93,14 @@ public class LinkedList {
   }
 
   public static void main(String[] args) {
-    String[] items = {"A", "B", "C", "D", "E"};
+    String[] items = { "A", "B", "C", "D", "E" };
     System.out.println("Items : " + StringUtils.join(items, ", "));
     System.out.println("Add from begin.");
     LinkedList ll = new LinkedList();
     for (String item : items) {
       ll.addBegin(item);
     }
-    for (int i=0; i<ll.getSize(); ++i) {
+    for (int i = 0; i < ll.getSize(); ++i) {
       System.out.println("Item " + i + ": " + ll.get(i));
     }
     System.out.println("Add from end.");
@@ -119,7 +108,17 @@ public class LinkedList {
     for (String item : items) {
       ll.addEnd(item);
     }
-    for (int i=0; i<ll.getSize(); ++i) {
+    for (int i = 0; i < ll.getSize(); ++i) {
+      System.out.println("Item " + i + ": " + ll.get(i));
+    }
+    System.out.println("Add item after position 1.");
+    ll.addAfter(1, "B2");
+    for (int i = 0; i < ll.getSize(); ++i) {
+      System.out.println("Item " + i + ": " + ll.get(i));
+    }
+    System.out.println("Add item after position 4.");
+    ll.addAfter(4, "D2");
+    for (int i = 0; i < ll.getSize(); ++i) {
       System.out.println("Item " + i + ": " + ll.get(i));
     }
   }
