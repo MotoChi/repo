@@ -49,14 +49,26 @@ public class LinkedList {
           "%d is larger than size of linked list, %d", i, size));
     }
     Node element = new Node(data);
-    Node temp = head;
-    for (int j = 0; j < i; ++j) {
+    if (size / 2 > i) {
+      Node temp = head;
+      for (int j = 0; j < i; ++j) {
+        temp = temp.getNext();
+      }
+      temp.getNext().getNext().setPrevious(element);
+      element.setNext(temp.getNext().getNext());
+      temp.getNext().setNext(element);
+      element.setPrevious(temp.getNext());
+    } else {
+      Node temp = tail;
+      for (int j = size; j > i; --j) {
+        temp = temp.getPrevious();
+      }
       temp = temp.getNext();
+      temp.getPrevious().setNext(element);
+      element.setPrevious(temp.getPrevious());
+      element.setNext(temp);
+      temp.setPrevious(element);
     }
-    temp.getNext().getNext().setPrevious(element);
-    element.setNext(temp.getNext().getNext());
-    temp.getNext().setNext(element);
-    element.setPrevious(temp.getNext());
     ++size;
   }
 
@@ -111,8 +123,8 @@ public class LinkedList {
     for (int i = 0; i < ll.getSize(); ++i) {
       System.out.println("Item " + i + ": " + ll.get(i));
     }
-    System.out.println("Add item after position 1.");
-    ll.addAfter(1, "B2");
+    System.out.println("Add item after position 3.");
+    ll.addAfter(4, "E2");
     for (int i = 0; i < ll.getSize(); ++i) {
       System.out.println("Item " + i + ": " + ll.get(i));
     }
