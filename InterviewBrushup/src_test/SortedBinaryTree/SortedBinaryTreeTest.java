@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 
-import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -86,5 +85,31 @@ public class SortedBinaryTreeTest {
     assertEquals(elements.length, tree.getSize());
     Arrays.sort(elements);
     assertTrue(Arrays.equals(elements, tree.getElements()));
+  }
+  
+  @Test
+  public void deleteNonExistingElement() throws Exception {
+    Integer[] elements = { 10, 5, 15, 7, 12, 2, 13, 3 };
+    SortedBinaryTree tree = new SortedBinaryTree();
+    for (Integer element : elements) {
+      tree.addElement(element);
+    }
+    int size = tree.getSize();
+    tree.deleteElement(25);
+    assertEquals(size, tree.getSize());
+  }
+  
+  @Test
+  public void deleteLeftLeafElement() throws Exception {
+    Integer[] elements = { 10, 5, 15, 7, 12, 2, 13, 3, 1 };
+    SortedBinaryTree tree = new SortedBinaryTree();
+    for (Integer element : elements) {
+      tree.addElement(element);
+    }
+    int size = tree.getSize();
+    assertTrue(tree.elementExists(1));
+    tree.deleteElement(1);
+    assertEquals(--size, tree.getSize());
+    assertFalse(tree.elementExists(1));
   }
 }

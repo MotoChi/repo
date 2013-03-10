@@ -63,13 +63,13 @@ public class SortedBinaryTree {
       }
     }
   }
-  
+
   public Integer[] getElements() {
     List<Integer> elements = new ArrayList<Integer>();
     elements = getSubTree(elements, root);
     return elements.toArray(new Integer[elements.size()]);
   }
-  
+
   private List<Integer> getSubTree(List<Integer> elements, Node subTree) {
     if (subTree.getLeftChild() != null) {
       getSubTree(elements, subTree.getLeftChild());
@@ -79,5 +79,23 @@ public class SortedBinaryTree {
       getSubTree(elements, subTree.getRightChild());
     }
     return elements;
+  }
+
+  public void deleteElement(Integer data) {
+    if (!elementExists(data)) {
+      return;
+    }
+    --size;
+    Node element = findElement(data, root);
+    // if
+  }
+
+  private Node findElement(Integer data, Node subTree) {
+    if (data < subTree.getData()) {
+      findElement(data, subTree.getLeftChild());
+    } else if (data < subTree.getData()) {
+      findElement(data, subTree.getRightChild());
+    }
+    return subTree;
   }
 }
