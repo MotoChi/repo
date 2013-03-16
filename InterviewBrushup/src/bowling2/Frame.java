@@ -96,12 +96,7 @@ public class Frame {
   public static void main(String[] args) {
     Frame previousFrame = null;
     for (int i = 1; i <= 10; ++i) {
-      Frame frame;
-      if (previousFrame == null) {
-        frame = new Frame(i, null);
-      } else {
-        frame = new Frame(i, previousFrame);
-      }
+      Frame frame = new Frame(i, previousFrame);
       previousFrame = frame;
       System.out.println(frame.toString());
     }
