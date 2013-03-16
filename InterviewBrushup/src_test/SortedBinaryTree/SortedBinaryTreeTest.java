@@ -100,7 +100,7 @@ public class SortedBinaryTreeTest {
   }
   
   @Test
-  public void deleteLeftLeafElement() throws Exception {
+  public void deleteLeftLeftLeafElement() throws Exception {
     Integer[] elements = { 10, 5, 15, 7, 12, 2, 13, 3, 1 };
     SortedBinaryTree tree = new SortedBinaryTree();
     for (Integer element : elements) {
@@ -111,5 +111,75 @@ public class SortedBinaryTreeTest {
     tree.deleteElement(1);
     assertEquals(--size, tree.getSize());
     assertFalse(tree.elementExists(1));
+  }
+  
+  @Test
+  public void deleteLeftRightLeafElement() throws Exception {
+    Integer[] elements = { 10, 5, 15, 7, 12, 2, 13, 3, 1 };
+    SortedBinaryTree tree = new SortedBinaryTree();
+    for (Integer element : elements) {
+      tree.addElement(element);
+    }
+    int size = tree.getSize();
+    assertTrue(tree.elementExists(3));
+    tree.deleteElement(3);
+    assertEquals(--size, tree.getSize());
+    assertFalse(tree.elementExists(3));
+  }
+  
+  @Test
+  public void deleteRightLeftLeafElement() throws Exception {
+    Integer[] elements = { 10, 5, 15, 7, 12, 2, 13, 3, 1, 11 };
+    SortedBinaryTree tree = new SortedBinaryTree();
+    for (Integer element : elements) {
+      tree.addElement(element);
+    }
+    int size = tree.getSize();
+    assertTrue(tree.elementExists(11));
+    tree.deleteElement(11);
+    assertEquals(--size, tree.getSize());
+    assertFalse(tree.elementExists(11));
+  }
+  
+  @Test
+  public void deleteRightRightLeafElement() throws Exception {
+    Integer[] elements = { 10, 5, 15, 7, 12, 2, 13, 3, 1, 11 };
+    SortedBinaryTree tree = new SortedBinaryTree();
+    for (Integer element : elements) {
+      tree.addElement(element);
+    }
+    int size = tree.getSize();
+    assertTrue(tree.elementExists(13));
+    tree.deleteElement(13);
+    assertEquals(--size, tree.getSize());
+    assertFalse(tree.elementExists(13));
+  }
+  
+  @Test
+  public void deleteLeftMiddleElement() throws Exception {
+    Integer[] elements = { 10, 5, 15, 7, 12, 2, 13, 3, 1, 11, 6, 8 };
+    SortedBinaryTree tree = new SortedBinaryTree();
+    for (Integer element : elements) {
+      tree.addElement(element);
+    }
+    int size = tree.getSize();
+    assertTrue(tree.elementExists(13));
+    tree.deleteElement(13);
+    assertEquals(--size, tree.getSize());
+    assertFalse(tree.elementExists(13));
+  }
+  
+  @Test
+  public void deleteRootElement() throws Exception {
+    Integer[] elements = { 10, 5, 15, 7, 12, 2, 13, 3, 1, 11, 6, 8 };
+    SortedBinaryTree tree = new SortedBinaryTree();
+    for (Integer element : elements) {
+      tree.addElement(element);
+    }
+    int size = tree.getSize();
+    assertTrue(tree.elementExists(10));
+    tree.deleteElement(10);
+    assertEquals(--size, tree.getSize());
+    assertFalse(tree.elementExists(10));
   }
 }

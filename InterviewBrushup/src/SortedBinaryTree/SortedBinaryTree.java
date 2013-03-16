@@ -86,16 +86,54 @@ public class SortedBinaryTree {
       return;
     }
     --size;
-    Node element = findElement(data, root);
-    // if
-  }
-
-  private Node findElement(Integer data, Node subTree) {
-    if (data < subTree.getData()) {
-      findElement(data, subTree.getLeftChild());
-    } else if (data < subTree.getData()) {
-      findElement(data, subTree.getRightChild());
+    if (root.getData() == data) {
+      Node temp = new Node();
+      temp.setLeftChild(root);
+      remove(data, root, temp);
+      temp.setLeftChild(null);
+    } else {
+      remove(data, root, null);
     }
-    return subTree;
+  }
+  
+  private void remove(Integer data, Node node, Node parent) {
+    if (data < node.getData()) {
+      remove(data, node.getLeftChild(), node);
+    } else if (data > node.getData()) {
+      remove(data, node.getRightChild(), node);
+    } else {
+      if (node.getLeftChild() != null && node.getRightChild() != null) {
+        node.setData(findMin(node.getRightChild()));
+        remove(node.getData(), node.getRightChild(), null);
+      } else if (node.getLeftChild() == null && node.getRightChild() == null) {
+        if (data < parent.getData()) {
+          parent.setLeftChild(null);
+        } else {
+          parent.setRightChild(null);
+        }
+      } else if (node.getLeftChild() != null) {
+        if (data < parent.getData()) {
+          parent.setLeftChild(node.getLeftChild());
+        } else {
+          parent.setRightChild(node.getLeftChild());
+        }
+      } else if (node.getRightChild() != null) {
+        if (data < parent.getData()) {
+          parent.setLeftChild(node.getRightChild());
+        } else {
+          parent.setRightChild(node.getRightChild());
+        }
+      }
+    }
+  }
+  
+  private int findMin(Node node) {
+    int min = 0;
+    if (node.getLeftChild() == null) {
+      min = node.getData();
+    } else {
+      min = findMin(node.getLeftChild());
+    }
+    return min;
   }
 }
