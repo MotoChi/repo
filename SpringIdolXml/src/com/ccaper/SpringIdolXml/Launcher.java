@@ -19,6 +19,9 @@ public class Launcher {
     poeticDuke.perform();
     Performer kenny = (Performer) ctx.getBean("kenny");
     kenny.perform();
+    poeticDuke.perform();
+    Performer hank = (Performer) ctx.getBean("hank");
+    hank.perform();
     ((ConfigurableApplicationContext) ctx).close();
   }
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
   <bean id="duke" class="com.ccaper.SpringIdolXml.performers.Juggler" />
@@ -17,10 +16,24 @@
     <constructor-arg ref="sonnet29" />
   </bean>
 
-  <bean id="kenny"
-    class="com.ccaper.SpringIdolXml.performers.Instrumentalist"
-    p:song ="Jingle Bells"
-    p:instrument-ref = "saxophone" />
+  <bean id="kenny" class="com.ccaper.SpringIdolXml.performers.Instrumentalist"
+    p:song="Jingle Bells" p:instrument-ref="saxophone" />
 
   <bean id="saxophone" class="com.ccaper.SpringIdolXml.instruments.Saxophone" />
+
+  <bean id="guitar" class="com.ccaper.SpringIdolXml.instruments.Guitar" />
+  
+  <bean id="cymbal" class="com.ccaper.SpringIdolXml.instruments.Cymbal" />
+  
+  <bean id="harmonica" class="com.ccaper.SpringIdolXml.instruments.Harmonica" />
+  
+  <bean id="hank" class="com.ccaper.SpringIdolXml.performers.OneManBand">
+    <property name="instruments">
+      <set>
+        <ref bean="guitar" />
+        <ref bean="cymbal" />
+        <ref bean="harmonica" />
+      </set>
+    </property>
+  </bean>
 </beans>
