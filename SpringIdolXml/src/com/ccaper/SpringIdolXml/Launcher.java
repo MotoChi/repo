@@ -13,6 +13,10 @@ public class Launcher {
         "com/ccaper/SpringIdolXml/spring/spring-config.xml");
     Performer duke = (Performer) ctx.getBean("duke");
     duke.perform();
+    Performer duke15 = (Performer) ctx.getBean("duke15");
+    duke15.perform();
+    Performer poeticDuke = (Performer) ctx.getBean("poeticDuke");
+    poeticDuke.perform();
     ((ConfigurableApplicationContext) ctx).close();
   }
 }
