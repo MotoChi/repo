@@ -14,7 +14,7 @@ import com.ccaper.SpringIdolAutoDiscovery.instruments.Instrument;
 import com.ccaper.SpringIdolAutoDiscovery.performers.Instrumentalist;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("spring/spring-config.xml")
+@ContextConfiguration("classpath:com/ccaper/SpringIdolAutoDiscovery/spring/spring-config.xml")
 public class AnnotationConfigTest {
   @Autowired
   @Qualifier("eddie")
