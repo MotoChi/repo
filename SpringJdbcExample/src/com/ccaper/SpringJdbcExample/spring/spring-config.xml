@@ -14,10 +14,6 @@
     <property name="maxActive" value="10" />
   </bean>
   
-  <bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
-    <constructor-arg ref="dataSource" />
-  </bean>
-  
   <bean id="employeeDao" class="com.ccaper.SpringJdbcExample.daoImpl.JdbcEmployeeDao">
     <property name="dataSource" ref="dataSource" />
   </bean>
