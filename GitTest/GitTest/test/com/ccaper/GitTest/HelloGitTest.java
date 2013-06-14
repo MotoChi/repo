@@ -8,6 +8,7 @@ public class HelloGitTest {
 
   @Test
   public void test() {
+    // blah
     assertTrue(false);
   }
 
