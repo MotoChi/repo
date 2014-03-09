@@ -1,0 +1,2 @@
+0 7 * * * /home/root/bin/snapshot.sh > /dev/null 2>&1
+0 8 * * * /home/root/bin/rotate.sh > /dev/null 2>&1
